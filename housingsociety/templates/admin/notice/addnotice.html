@@ -1,0 +1,57 @@
+{% extends "admin/index.html" %}
+     {% block css %}
+   {{ super() }}
+		<link rel="stylesheet" href={{ url_for('static',filename='notice/adminpage_layout.css') }}>
+		<!-- Local compiled  JQeury library-->
+		<script type="text/javascript" src={{ url_for('static',filename='notice/lib/jquery.js')}}></script>
+
+		<script type="text/javascript" src{{ url_for('static',filename='notice/lib/Chart.bundle.js')}}></script>
+    
+{% endblock  %}
+ {% block body %} 
+        <div class="container-fluid">
+		<div class="row">
+			<div class="col-md-7">
+              <br>   <br>   <br>
+				<h1>Add Notices</h1>
+				<div class="container">
+					<form method="POST" action="{{url_for('register.addNotice')}}">
+						{{noticeForm.hidden_tag()}}
+						<div class="form-group">
+							{{ noticeForm.subject.label}}
+							{{ noticeForm.subject(class_="form-control") }}
+                            <br>
+                            {% for error in noticeForm.subject.errors %}
+                            <span style="color:red;">[{{ error }}]</span>
+                            {% endfor %}
+                           
+						</div>
+						<div class="form-group">
+							{{ noticeForm.date.label}}
+							{{ noticeForm.date(class_="form-control") }}
+                            <br>
+                            {% for error in noticeForm.date.errors %}
+                            <span style="color:red;">[{{ error }}]</span>
+                            {% endfor %}
+                           
+						</div>
+						<div class="form-group">
+							{{ noticeForm.body.label}}
+							{{ noticeForm.body(class_="form-control") }}
+                            <br>
+                          {% for error in noticeForm.body.errors %}
+                            <span style="color:red;">[{{ error }}]</span>
+                            {% endfor %}
+						</div>
+						{{ noticeForm.submitBtn(class_="btn btn-primary btn-block btn-lg") }}
+						<br/><br/><br/>
+					</form>
+					<script>
+							  {% if msg%}
+								
+							swal('{{ msg }}');
+							{% endif %}
+					</script>
+				</div>
+			</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static',filename='homepage/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='homepage/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='homepage/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='homepage/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='homepage/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='homepage/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ 
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static',filename='homepage/assets/css/style.css') }}" rel="stylesheet">
+{% block css %} {% endblock %}
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+      
+    
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/adminhome">Home</a></li>
+          <li><a class="nav-link scrollto " href="/download">Bill Report</a></li>
+          <li><a class="nav-link scrollto " href="/viewcomplaint">View Complaint</a></li>
+          <li><a class="nav-link scrollto " href="/Notice">Add Notice</a></li>
+          <li><a class="nav-link scrollto" href="/Bill">Add Bill</a></li>
+          <li class="dropdown"><a href="#"><span>Member</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/member">Add Member</a></li>
+              <li><a href="/view">View Member</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/logout">Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  {% block body %} {% endblock %}
+  </body>
+  </html>

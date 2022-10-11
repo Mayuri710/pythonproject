@@ -1,0 +1,88 @@
+{% extends "admin/index.html" %}
+     {% block css %}
+   {{ super() }}
+       <link rel="stylesheet" href={{ url_for('static',filename='notice/adminpage_layout.css') }}>
+		<!-- Local compiled  JQeury library-->
+		<script type="text/javascript" src={{ url_for('static',filename='notice/lib/jquery.js')}}></script>
+
+		<script type="text/javascript" src{{ url_for('static',filename='notice/lib/Chart.bundle.js')}}></script>
+    <style>
+.alert-error {
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  border: 2px solid darkred;
+  background-color:yellow;
+  color:black;
+}
+
+	</style>
+{% endblock  %}
+ {% block body %} 
+ <div class="col-md-6">
+ <br/><br/><br/><br/>
+				<div class="container">
+					<h1>Add Bill</h1>
+					<form method="post" action="{{url_for('register.addBill')}}">
+						{{billForm.hidden_tag()}}
+						<div class="form-group">
+							{{ billForm.selectedWings.label}}
+							{{ billForm.selectedWings(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.billDate.label }}
+							{{ billForm.billDate(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.duedate.label }}
+							{{ billForm.duedate(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.WATER_CHARGES.label }}
+							{{ billForm.WATER_CHARGES(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.PROPERTY_TAX.label }}
+							{{ billForm.PROPERTY_TAX(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.ELECTRICITY_CHARGES.label }}
+							{{ billForm.ELECTRICITY_CHARGES(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.SINKING_FUNDS.label }}
+							{{ billForm.SINKING_FUNDS(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.PARKING_CHARGES.label }}
+							{{ billForm.PARKING_CHARGES(class_="form-control") }}
+						</div><br/>
+						<div class="form-group">
+							{{ billForm.OTHER.label }}
+							{{ billForm.OTHER(class_="form-control") }}
+						</div><br/>
+						<br/>
+						<center>
+						{{ billForm.submitBtn(class_="btn btn-primary btn-block btn-lg") }}
+						</center>
+						<br/><br/><br/>
+					</form>
+					<script>
+							  {% if msg%}
+								
+							swal('{{ msg }}');
+							{% endif %}
+					</script>
+
+				</div>
+			</div> 
+		</div>
+
+	</div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "user/base.html" %}
+	{% block css %}
+   {{ super() }}
+{% endblock  %}
+{% block body %}
+<br> <br> <br> <br> <br> <br> 
+<div class="col-md-10">
+	<div class="container currBillContainer">
+	
+		
+		 {% if details %}
+		 {% for row in details %}
+		 <table class="table table-bordered">
+  			<h1  class="float-left" style="color: #6b6b47;">Maintainence Bill</h1>
+			<h4  class="float-md-right" id="billDate">Date : <span id="date">{{ row.bill_date }}</span></h4>
+			<h4  class="float-md-right" id="billDate">Due Date : <span id="date">{{ row.due_date }}</span></h4>
+		
+			<thead class="thead-dark">
+				<tr>
+					<th>Category</th>
+					<th>Cost</th>
+				</tr>
+			</thead>
+			<tbody style="text-transform: capitalize;">
+			 
+				<tr>
+					<td>Water Charges</td>
+					<td>{{ row.water_charges }}</td>
+				</tr>
+        <tr>
+					<td>Property Tax</td>
+					<td>{{ row.property_tax }}</td>
+				</tr>
+        <tr>
+					<td>Electrical Charges</td>
+					<td>{{ row.elec_charges }}</td>
+				</tr>
+        <tr>
+					<td>Sinking Funds</td>
+					<td>{{ row.sinking_fund }}</td>
+				</tr>
+        <tr>
+					<td>Parking Charges</td>
+					<td>{{ row.parking_charges }}</td>
+				</tr>
+        <tr>
+					<td>Other Charges</td>
+					<td>{{ row.other }}</td>
+				</tr>
+				{% endfor %}
+					
+				<tr class="table-active">
+					<td>Total</td>
+					<td>{{totalsum}}</td>
+				</tr>
+			</tbody>
+ 		</table>
+		 <div class="text-center align-middle">
+    				<div class="btn-group">
+        				<a href="/Payment" button class="btn btn-outline-primary">Payment</a></button>
+    				</div>                
+				</div>
+	</div>
+	<script>
+							  {% if msg%}
+								
+							swal('{{ msg }}');
+							{% endif %}
+					</script>
+		
+		{% else %}
+
+	<h1 class="float-left" align="center" style="color: #6b6b47;">No Bill</h1>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	{% endif %}
+{% endblock %}

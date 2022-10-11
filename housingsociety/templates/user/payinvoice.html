@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Payment Invoice</title>
+    <style>
+        body {
+            font-family:Cursive, Helvetica, sans-serif;
+            }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse; 
+            width: 80%;
+            }
+        table, th, td {
+            padding: 8px;
+            border: 1px solid slategray; 
+            margin: 20px;
+            text-align: center;
+            }
+        .signature { 
+            display: inline; 
+            width: 30%;
+            margin-right: 30px;
+            }
+    </style>
+</head>
+<body>
+<br/>
+ <h1>Arpita Housing Society</h1>
+ <hr>
+    <p style="font-size:140%;"><b>Name:</b> {{invoice.name}}</p>
+    <p style="font-size:140%;"><b>Bill Date:</b> {{billdetails.bill_date}} </p>
+    <p style="font-size:140%;"><b>Due Date:</b> {{billdetails.due_date}}</p>
+    <h2>Bill Details:</h2>
+    <table>
+    <tr>
+       
+        <th><b>Category</b></th>
+        <th><b>Cost</b></th>
+     
+    </tr>
+   
+       <tr>
+					<td>Water Charges</td>
+					<td>{{ billdetails.water_charges }}</td>
+				</tr>
+        <tr>
+					<td>Property Tax</td>
+					<td>{{ billdetails.property_tax }}</td>
+				</tr>
+        <tr>
+					<td>Electrical Charges</td>
+					<td>{{ billdetails.elec_charges }}</td>
+				</tr>
+        <tr>
+					<td>Sinking Funds</td>
+					<td>{{ billdetails.sinking_fund }}</td>
+				</tr>
+        <tr>
+					<td>Parking Charges</td>
+					<td>{{ billdetails.parking_charges }}</td>
+				</tr>
+        <tr>
+					<td>Other Charges</td>
+					<td>{{ billdetails.other }}</td>
+				</tr>
+             
+ 
+</table>
+    <h2>Total: {{invoice.amount}} Rs.</h2>
+    <br/><hr>
+    <div align="right" class="signature">
+        <h2>Secretary's Sign:</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Jon_Kirsch%27s_Signature.png/320px-Jon_Kirsch%27s_Signature.png" align="right"/>
+    </div>  
+</body>
+</html>

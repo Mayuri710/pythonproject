@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Arpita Housing Society</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static',filename='userhome/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='userhome/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='userhome/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='userhome/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='userhome/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='userhome/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static',filename='userhome/assets/css/style.css')}}" rel="stylesheet">
+{% block css %} {% endblock %}
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+    <div class="logo">
+        <h1 class="text-light"><span></span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          {% if session.flat_num %}
+          <li><a class="nav-link scrollto" href="/noticeview">NoticeBoard</a></li>
+          <li><a class="nav-link scrollto" href="/complaint">Complaint</a></li>
+          <li><a class="nav-link scrollto" href="/MainBill">Maintainance</a></li>
+           <li class="dropdown"><a href="#"><span>Account</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/uhistory">Payment History</a></li>
+              <li><a href="/changepassword">Change Password</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/logoutuser">Logout</a></li>
+          <li><b>Hello,{{session.user_name}}</b></li>
+           {% else %}
+           <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/loginuser">Member</a></li>
+              <li><a href="/adminlogin">Admin</a></li>
+            </ul>
+          <li><b>Hello,User</b></li>
+          </li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  {% block body %} {% endblock %}
+  </body>
+  </html>

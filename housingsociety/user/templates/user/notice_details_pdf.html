@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notice</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        table, th, td {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: left;
+            font-family:Arial, Helvetica, sans-serif;
+            height: 50px;
+            vertical-align: bottom;
+        }
+        .signature { 
+            display: inline; 
+            width: 30%;
+            }
+    </style>
+</head>
+<body>
+<br/>
+ <h1>Arpita Housing Society</h1>
+ <hr><br/>
+    <p style="font-size:200%;"><b>Date:</b> {{notepdf.date}}</p>
+    <p style="font-size:200%;"><b>Subject:</b> {{notepdf.subject}} </p>
+    <p style="font-size:200%;"><b>Description:</b> {{notepdf.description}} </p>
+    <br/><hr>
+    <div align="right" class="signature">
+        <h2>Secretary's Sign:</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Jon_Kirsch%27s_Signature.png/320px-Jon_Kirsch%27s_Signature.png" align="right"/>
+    </div>
+
+</body>
+</html>

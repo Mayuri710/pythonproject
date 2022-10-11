@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+
+<div id="purchase_order">
+<table class="table table-bordered">
+<tr>
+
+
+<th>Name</th>
+<th >Flat No</th>
+<th >Pay Date</th>
+<th >Amount</th>
+</tr>
+      {% for row in query %}
+          <tr>
+         <tr>
+    <td>{{row.name}}</td>
+    <td>{{row.flatno_id}}</td>
+    <td>{{row.paydate}}</td>
+    <td>{{row.amount}}</td>
+  
+          </tr>
+      {% endfor %}
+
+</table>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>

@@ -1,0 +1,85 @@
+{% extends "admin/index.html" %}
+    {% block css %}
+     {{ super() }}
+    {% endblock  %}
+ 
+  {% block body %}
+<br/> <br/><br/><br/><br/><br/>
+<div class="container">
+<br/>
+<br/>
+
+<div id="purchase_order">
+<table class="table table-bordered">
+<tr>
+
+
+<th>Name</th>
+<th >Flat No</th>
+<th >Complaint Date</th>
+<th >Email</th>
+<th >Subject</th>
+<th >Message</th>
+</tr>
+{% for row in row %}
+    <tr>
+    <td>{{row.name}}</td>
+    <td>{{row.flatno_id}}</td>
+    <td>{{row.complaintdate}}</td>
+    <td>{{row.email}}</td>
+    <td>{{row.subject}}</td>
+    <td>{{row.message}}</td>
+    <td><a href="/viewcomplaint/{{row.id}}"class="btn btn-secondary" data-toggle="modal" data-target="#modalview{{row.id}}" >Reply</a></td>
+    </tr>
+      {% endfor %}
+      </table>
+</div>
+</div>
+{% for row in row %}
+
+<div class="modal fade" id="modalview{{row.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Description</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <form action="{{url_for('register.sendreply')}}" method="POST">
+   			<input type="hidden"  name="id" value="{{row.id}}">
+				<div class="form-group">
+                <h5>Subject</h5>
+				<label>{{row.subject}}</label>
+				</div>
+                <hr>
+                <div class="form-group">
+                <h5>Message</h5>
+				<label>{{row.message}}</label>
+				</div>
+                <hr>
+                <div class="form-group">
+                <h5>Reply</h5>
+				<input type="textarea" class="form-control" name="reply">
+				</div>
+                <br/>
+                <button class="btn btn-primary"  type="submit">Send Mail</button>
+                <br/>
+				<div class="modal-footer">
+				    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				    
+			    </div>
+	</form>
+ 
+      </div>
+    </div>
+	 
+  </div>
+</div>
+ {% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock  %}

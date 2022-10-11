@@ -1,0 +1,80 @@
+{% extends "admin/index.html" %}
+    {% block css %}
+   {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{{ url_for('static',filename='member/css/main.css') }}" rel="stylesheet" media="all">
+    <style>
+    .title{
+        color: black;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    </style>
+    
+{% endblock  %}
+ 
+  {% block body %}
+    <div class="page-wrapper bg-gra-01  p-t-95 p-b-60">
+        <div class="wrapper wrapper--w680">
+        <div class="card-heading">
+         <br/>
+          <br/>
+           <br/> <br/> <br/>
+            <div class="name"><h2 class="title">Add A Member</h2></div>
+                </div>
+            <div class="card card-6">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                       
+                        <div class="form-row">
+                            <div class="name">Full name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="name" placeholder="Name" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Flat No</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="flat_no" placeholder="Flat No" >
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-row">
+                            <div class="name">Mobile</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="mobile" placeholder="Mobile" >
+                                </div>
+                            </div>
+                        </div>
+                        
+                       <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="email" placeholder="Email" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--green" type="submit">Submit</button>
+                        </div>
+                        {% if msg%}
+        			<p class="error"><strong>Error:</strong> {{ msg }}
+      			{% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jquery JS-->
+    <script src="{{ url_for('static',filename='member/vendor/jquery/jquery.min.js') }}"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Main JS-->
+    <script src="{{ url_for('static',filename='member/js/global.js') }}"></script>
+    
+    
+{% endblock  %}
